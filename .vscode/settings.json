@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "images.h": "c",
+        "numeric": "cpp",
+        "ui_logic.h": "c",
+        "arduino.h": "c",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "memory": "cpp",
+        "istream": "cpp",
+        "functional": "cpp"
+    }
+}
