@@ -123,7 +123,7 @@ void create_screen_main() {
             lv_bar_set_value(obj, 25, LV_ANIM_OFF);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xfff3a521), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_opa(obj, 1000, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             // main_power_mod_2
@@ -135,7 +135,7 @@ void create_screen_main() {
             lv_bar_set_value(obj, 25, LV_ANIM_OFF);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xfff3a521), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_opa(obj, 1000, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             lv_obj_t *obj = lv_animimg_create(parent_obj);

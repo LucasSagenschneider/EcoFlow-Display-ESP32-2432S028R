@@ -1,7 +1,4 @@
-// EcoFlow functions to request data from the cloud
-
-#ifndef EcoFlow_h
-#define EcoFlow_h
+#pragma once
 
 #include "Arduino.h" 
 #include <ESP32Time.h>
@@ -14,35 +11,26 @@ struct power_output
   uint32_t mod2Watts;
 };
 
-
 class EcoFlow 
 {
     public:
-        EcoFlow(String key, String secret, String sn, String timezone):
-                m_key(key), m_secret(secret), m_sn(sn), m_timezone(timezone)
-                {
-                  m_rtc = ESP32Time(7200); // offset in seconds GMT+1
-                };
-        String get_ecoflow_data(void);
-        ESP32Time get_ESP32Time();
-        power_output get_power(String inData);
+        EcoFlow(String key, String secret, String sn, String timezone);
+        ~EcoFlow() = default;
+        power_output get_power();
 
 
     private:
         String byteArrayToString(byte* byteArray, int length);
         String hmac_sha256(const char *payload, const char *key);
+        String get_ecoflow_data(String path);
 
         bool m_rtcIsUpToDate = false;
-        String m_url     = "https://api.ecoflow.com";
-        String m_path    = "/iot-open/sign/device/quota/all";
-        String m_nonce   = String(random(100000,999999));
+        String m_url;
+        String m_path;
+        String m_nonce;
         String m_key;
         String m_secret;
         String m_sn;
         String m_timezone;
         ESP32Time m_rtc;
 };
-
-#endif
-
-

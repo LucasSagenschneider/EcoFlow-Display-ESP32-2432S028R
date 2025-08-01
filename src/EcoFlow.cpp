@@ -2,6 +2,18 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include "mbedtls/md.h"
+#include "Logger.hpp"
+
+EcoFlow::EcoFlow(String key, String secret, String sn, String timezone):
+    m_key(key), 
+    m_secret(secret), 
+    m_sn(sn), 
+    m_timezone(timezone),
+    m_nonce(String(random(100000,999999))), 
+    m_path("/iot-open/sign/device/quota/all"),
+    m_url("https://api.ecoflow.com")
+{
+};
 
 String EcoFlow::byteArrayToString(byte* byteArray, int length) {
   String str = "";
@@ -29,13 +41,13 @@ String EcoFlow::hmac_sha256(const char *payload, const char *key) {
   return byteArrayToString(hmacResult, 32);
 }
 
-String EcoFlow::get_ecoflow_data(void) {
+String EcoFlow::get_ecoflow_data(String path) {
   String payload;
   if (WiFi.status() == WL_CONNECTED) 
   {
     HTTPClient http;
     // Construct the API endpoint
-    http.begin(String(m_url + m_path + "?sn=" + m_sn));
+    http.begin(String(m_url + path + "?sn=" + m_sn));
 
     struct tm timeinfo;
     time_t localEpoch = 0;
@@ -64,25 +76,27 @@ String EcoFlow::get_ecoflow_data(void) {
       }
       else
       {
-        Serial.println("GET request failed, error: " + String(httpCode));
+        Logger::log("GET request failed, error: " + String(httpCode));
       }
       
     } 
     else 
     {
-      Serial.println("GET request failed, error: " + String(httpCode));
+      Logger::log("GET request failed, error: " + String(httpCode));
     }
     http.end(); // Close connection
   } 
   else 
   {
-    Serial.println("Not connected to Wi-Fi");
+    Logger::log("Not connected to Wi-Fi");
   }
 
   return payload;
 }
 
-power_output EcoFlow::get_power(String inData) {
+power_output EcoFlow::get_power() {
+  String inData = get_ecoflow_data(m_path);
+
   // JSON-Parsing vorbereiten
   DynamicJsonDocument doc(16384);
 

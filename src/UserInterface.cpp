@@ -1,9 +1,13 @@
-#include "ui_logic.hpp"
+#include "UserInterface.hpp"
+#include "touchscreen.h"
 #include "ui/actions.h"
 #include "ui/images.h"
-#include "SPIFFS.h"
 
-void ui_setup() {
+
+UserInterface::UserInterface(uint32_t task_period):
+  m_task_period(task_period)
+{
+  touchscreen_setup();
   ui_init();
 
   // workaround - eez studio can not adress lvgl symbols
@@ -11,24 +15,23 @@ void ui_setup() {
   lv_label_set_text(objects.button_lable_wifi_info, LV_SYMBOL_WIFI);
 }
 
-void action_back_to_main_page(lv_event_t *e) {
-  lv_scr_load(objects.main);
+void UserInterface::userInterfaseTick(QueueHandle_t &guiQueue)
+{
+  if (xQueueReceive(guiQueue, &m_receivedData, 0)) {
+    updateElements();
+  }
+
+  //update UI
+  lv_task_handler();
+  lv_tick_inc(m_task_period);
 }
 
-void action_go_to_settings_page(lv_event_t *e) {
-  lv_scr_load(objects.settings);
-}
+void UserInterface::updateElements() {
 
-void action_settings_set_keyboard_input(lv_event_t *e) {
-  lv_obj_t *obj = (lv_obj_t *)lv_event_get_target(e);
-  lv_keyboard_set_textarea(objects.settings_keyboard, obj);
-}
+  lv_bar_set_value(objects.main_power_mod_1, m_receivedData.module1PvPower, LV_ANIM_OFF);
+  lv_bar_set_value(objects.main_power_mod_2, m_receivedData.module2PvPower, LV_ANIM_OFF);
 
-void action_save_settings(lv_event_t *e) {
-    // TODO: Implement action save_settings here
-}
-
-void display_power(uint32_t power) {
+  uint32_t power = m_receivedData.totalPvPower;
   lv_arc_set_value(objects.main_power_arc, power);
   lv_label_set_text_fmt(objects.main_power_lable, "%d Wh", power);
   
@@ -71,15 +74,28 @@ void display_power(uint32_t power) {
   
 }
 
+
+// userInterface Callbacks - defined by eez studio
+// -----------------------------------------------
+void action_back_to_main_page(lv_event_t *e) {
+  lv_scr_load(objects.main);
+}
+
+void action_go_to_settings_page(lv_event_t *e) {
+  lv_scr_load(objects.settings);
+}
+
+void action_settings_set_keyboard_input(lv_event_t *e) {
+  lv_obj_t *obj = (lv_obj_t *)lv_event_get_target(e);
+  lv_keyboard_set_textarea(objects.settings_keyboard, obj);
+}
+
+void action_save_settings(lv_event_t *e) {
+    // TODO: Implement action save_settings here
+}
+
 void action_go_to_wifi_info(lv_event_t * e) {
 
 
 }
-
-// filesystem
-void init_SPIFFS(void){
-  if (!SPIFFS.begin(true)) {
-    Serial.println("SPIFFS konnte nicht gestartet werden.");
-    return;
-  }
-}
+//-----------------------------------------------
