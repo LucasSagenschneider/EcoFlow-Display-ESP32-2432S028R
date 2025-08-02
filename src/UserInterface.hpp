@@ -14,5 +14,7 @@ private:
   GuiData m_receivedData;
   uint32_t m_task_period;
   void updateElements(void);
+  void updatePowerDisplay(void);
+  void updateWifiInfo(void);
 };
 

@@ -7,5 +7,7 @@ struct GuiData
   uint32_t totalPvPower = 0;
   uint32_t module1PvPower = 0;
   uint32_t module2PvPower = 0;
-  String localIP = "";
+  String ssid = "";
+  String signal = "";
+  String ipAdress = "not connected";
 };

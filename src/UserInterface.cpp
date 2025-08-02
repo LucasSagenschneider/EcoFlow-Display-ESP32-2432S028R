@@ -27,7 +27,11 @@ void UserInterface::userInterfaseTick(QueueHandle_t &guiQueue)
 }
 
 void UserInterface::updateElements() {
+  updatePowerDisplay();
+  updateWifiInfo();
+}
 
+void UserInterface::updatePowerDisplay() {
   lv_bar_set_value(objects.main_power_mod_1, m_receivedData.module1PvPower, LV_ANIM_OFF);
   lv_bar_set_value(objects.main_power_mod_2, m_receivedData.module2PvPower, LV_ANIM_OFF);
 
@@ -45,7 +49,7 @@ void UserInterface::updateElements() {
   }
   else if((power > 100) && (power <= 200)) {
     lv_image_set_src(objects.main_img, &img_radio);
-    lv_label_set_text(objects.main_name_lable, "Radio hören");
+    lv_label_set_text(objects.main_name_lable, "Radio hoeren");
   }
   else if((power > 200) && (power <= 300)) {
     lv_image_set_src(objects.main_img, &img_xbox);
@@ -61,11 +65,11 @@ void UserInterface::updateElements() {
   }
   else if((power > 500) && (power <= 600)) {
     lv_image_set_src(objects.main_img, &img_oven);
-    lv_label_set_text(objects.main_name_lable, "Essen aufwärmen");
+    lv_label_set_text(objects.main_name_lable, "Essen aufwaermen");
   }
   else if((power > 600) && (power <= 700)) {
     lv_image_set_src(objects.main_img, &img_kuhlschrank);
-    lv_label_set_text(objects.main_name_lable, "Kühlen");
+    lv_label_set_text(objects.main_name_lable, "Kuehlen");
   }
   else if((power > 700) && (power <= 800)) {
     lv_image_set_src(objects.main_img, &img_coffee_machine);
@@ -74,6 +78,11 @@ void UserInterface::updateElements() {
   
 }
 
+void UserInterface::updateWifiInfo() {
+  lv_label_set_text(objects.main_wifi_info_ip_adress, m_receivedData.ipAdress.c_str());
+  lv_label_set_text(objects.main_wifi_info_wifi_name, m_receivedData.ssid.c_str());
+  lv_label_set_text(objects.main_wifi_info_wifi_siganl, m_receivedData.signal.c_str());
+}
 
 // userInterface Callbacks - defined by eez studio
 // -----------------------------------------------
@@ -95,7 +104,10 @@ void action_save_settings(lv_event_t *e) {
 }
 
 void action_go_to_wifi_info(lv_event_t * e) {
+  lv_obj_clear_flag(objects.wifi_info, LV_OBJ_FLAG_HIDDEN);
+}
 
-
+void action_close_wifi_info(lv_event_t * e){
+  lv_obj_add_flag(objects.wifi_info, LV_OBJ_FLAG_HIDDEN);
 }
 //-----------------------------------------------

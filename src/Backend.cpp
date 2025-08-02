@@ -20,6 +20,9 @@ void Backend::backendTick(QueueHandle_t &guiQueue)
         sendData.totalPvPower = ecoflowData.outputWatts;
         sendData.module1PvPower = ecoflowData.mod1Watts;
         sendData.module2PvPower = ecoflowData.mod2Watts;
+        sendData.ssid = WiFi.SSID();
+        sendData.signal = String(WiFi.RSSI()) + " dBm";
+        sendData.ipAdress = WiFi.localIP().toString();
 
         xQueueSend(guiQueue, &sendData, portMAX_DELAY);
     

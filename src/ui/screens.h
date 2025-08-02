@@ -22,6 +22,15 @@ typedef struct _objects_t {
     lv_obj_t *obj0;
     lv_obj_t *obj1;
     lv_obj_t *main_name_lable;
+    lv_obj_t *wifi_info;
+    lv_obj_t *obj2;
+    lv_obj_t *obj3;
+    lv_obj_t *obj4;
+    lv_obj_t *obj5;
+    lv_obj_t *main_wifi_info_ip_adress;
+    lv_obj_t *main_wifi_info_wifi_siganl;
+    lv_obj_t *main_wifi_info_wifi_name;
+    lv_obj_t *obj6;
     lv_obj_t *settings_table;
     lv_obj_t *wifi_ssid;
     lv_obj_t *wifi_password;
