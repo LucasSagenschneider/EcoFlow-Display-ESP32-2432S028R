@@ -34,13 +34,13 @@ Please refer to the respective repositories for further details and licensing.
 
 The following icons are used in this project. All icons are from [Flaticon](https://www.flaticon.com/) and are subject to their respective licenses:
 
-- [Night icons](https://www.flaticon.com/free-icons/night) created by Freepik
-- [TV table icons](https://www.flaticon.com/free-icons/tv-table) created by Freepik
+- [Miscellaneous icons](https://www.flaticon.com/free-icons/miscellaneous) created by Flat Icons
+- [TV stand icons](https://www.flaticon.com/free-icons/tv-stand) created by Smashicons
 - [Charge icons](https://www.flaticon.com/free-icons/charge) created by Smashicons
-- [Game console icons](https://www.flaticon.com/free-icons/game-console) created by Freepik
-- [Kitchen icons](https://www.flaticon.com/free-icons/kitchen) created by Freepik
-- [Refrigerator icons](https://www.flaticon.com/de/kostenlose-icons/kuhlschrank) created by Freepik
-- [Microwave oven icons](https://www.flaticon.com/free-icons/microwave-oven) created by Freepik
-- [Radio icons](https://www.flaticon.com/de/kostenlose-icons/radio) created by Wissawa Khamsriwath
+- [Xbox icons](https://www.flaticon.com/free-icons/xbox) created by Freepik
+- [Coffee maker icons](https://www.flaticon.com/free-icons/coffee-maker) created by Freepik
+- [Kühlschrank Icons](https://www.flaticon.com/de/kostenlose-icons/kuhlschrank) created by Konkapp
+- [Microwave icons](https://www.flaticon.com/free-icons/microwave) created by Freepik
+- [Radio icons](https://www.flaticon.com/de/kostenlose-icons/radio) created by Freepik
 - [Solar panel icons](https://www.flaticon.com/free-icons/solar-panel) created by Freepik
-- [Vacuum cleaner icons](https://www.flaticon.com/free-icons/vacuum-cleaner) created by Freepik
+- [vacuum icons](https://www.flaticon.com/free-icons/vacuum) created by Freepik

@@ -36,11 +36,11 @@ void UserInterface::updateElements() {
   lv_label_set_text_fmt(objects.main_power_lable, "%d Wh", power);
   
   if(power == 0) {
-    lv_image_set_src(objects.main_img, &img_mond);
+    lv_image_set_src(objects.main_img, &img_night);
     lv_label_set_text(objects.main_name_lable, "Nacht");
   }
   else if((power > 0) && (power <= 100)) {
-    lv_image_set_src(objects.main_img, &img_handy);
+    lv_image_set_src(objects.main_img, &img_phone);
     lv_label_set_text(objects.main_name_lable, "Handy laden");
   }
   else if((power > 100) && (power <= 200)) {
@@ -48,19 +48,19 @@ void UserInterface::updateElements() {
     lv_label_set_text(objects.main_name_lable, "Radio hören");
   }
   else if((power > 200) && (power <= 300)) {
-    lv_image_set_src(objects.main_img, &img_joystick);
+    lv_image_set_src(objects.main_img, &img_xbox);
     lv_label_set_text(objects.main_name_lable, "XBOX spielen");
   }
   else if((power > 300) && (power <= 400)) {
-    lv_image_set_src(objects.main_img, &img_fernseh);
+    lv_image_set_src(objects.main_img, &img_television);
     lv_label_set_text(objects.main_name_lable, "Fernsehen");
   }
   else if((power > 400) && (power <= 500)) {
-    lv_image_set_src(objects.main_img, &img_staubsauger);
+    lv_image_set_src(objects.main_img, &img_vacuum);
     lv_label_set_text(objects.main_name_lable, "Staubsaugen");
   }
   else if((power > 500) && (power <= 600)) {
-    lv_image_set_src(objects.main_img, &img_mikrowelle);
+    lv_image_set_src(objects.main_img, &img_oven);
     lv_label_set_text(objects.main_name_lable, "Essen aufwärmen");
   }
   else if((power > 600) && (power <= 700)) {
@@ -68,7 +68,7 @@ void UserInterface::updateElements() {
     lv_label_set_text(objects.main_name_lable, "Kühlen");
   }
   else if((power > 700) && (power <= 800)) {
-    lv_image_set_src(objects.main_img, &img_kaffeemaschine);
+    lv_image_set_src(objects.main_img, &img_coffee_machine);
     lv_label_set_text(objects.main_name_lable, "Kaffee kochen");
   }
   

@@ -73,9 +73,9 @@ void create_screen_main() {
             // main_img
             lv_obj_t *obj = lv_image_create(parent_obj);
             objects.main_img = obj;
-            lv_obj_set_pos(obj, 60, 75);
+            lv_obj_set_pos(obj, 56, 71);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_image_set_src(obj, &img_mond);
+            lv_image_set_src(obj, &img_night);
         }
         {
             // main_power_arc
@@ -101,16 +101,16 @@ void create_screen_main() {
         }
         {
             lv_obj_t *obj = lv_image_create(parent_obj);
-            lv_obj_set_pos(obj, 5, 245);
+            lv_obj_set_pos(obj, 5, 241);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_image_set_src(obj, &img_solar);
+            lv_image_set_src(obj, &img_solar_panel);
             lv_image_set_rotation(obj, 2);
         }
         {
             lv_obj_t *obj = lv_image_create(parent_obj);
-            lv_obj_set_pos(obj, 171, 245);
+            lv_obj_set_pos(obj, 171, 241);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_image_set_src(obj, &img_solar);
+            lv_image_set_src(obj, &img_solar_panel);
             lv_image_set_rotation(obj, 2);
         }
         {
@@ -138,81 +138,9 @@ void create_screen_main() {
             lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
-            lv_obj_t *obj = lv_animimg_create(parent_obj);
-            lv_obj_set_pos(obj, 69, 201);
-            lv_obj_set_size(obj, 102, 100);
-            static const lv_image_dsc_t *images[61] = {
-                &img_frame_00_delay_0_08s,
-                &img_frame_01_delay_0_04s,
-                &img_frame_02_delay_0_04s,
-                &img_frame_03_delay_0_04s,
-                &img_frame_04_delay_0_04s,
-                &img_frame_05_delay_0_04s,
-                &img_frame_06_delay_0_04s,
-                &img_frame_07_delay_0_04s,
-                &img_frame_08_delay_0_04s,
-                &img_frame_09_delay_0_04s,
-                &img_frame_10_delay_0_04s,
-                &img_frame_11_delay_0_04s,
-                &img_frame_12_delay_0_04s,
-                &img_frame_13_delay_0_04s,
-                &img_frame_14_delay_0_04s,
-                &img_frame_15_delay_0_04s,
-                &img_frame_16_delay_0_04s,
-                &img_frame_17_delay_0_04s,
-                &img_frame_18_delay_0_04s,
-                &img_frame_19_delay_0_04s,
-                &img_frame_20_delay_0_04s,
-                &img_frame_21_delay_0_04s,
-                &img_frame_22_delay_0_04s,
-                &img_frame_23_delay_0_04s,
-                &img_frame_24_delay_0_04s,
-                &img_frame_25_delay_0_04s,
-                &img_frame_26_delay_0_04s,
-                &img_frame_27_delay_0_04s,
-                &img_frame_28_delay_0_04s,
-                &img_frame_29_delay_0_04s,
-                &img_frame_30_delay_0_04s,
-                &img_frame_31_delay_0_04s,
-                &img_frame_32_delay_0_04s,
-                &img_frame_33_delay_0_04s,
-                &img_frame_34_delay_0_04s,
-                &img_frame_35_delay_0_04s,
-                &img_frame_36_delay_0_04s,
-                &img_frame_37_delay_0_04s,
-                &img_frame_38_delay_0_44s,
-                &img_frame_39_delay_0_04s,
-                &img_frame_40_delay_0_04s,
-                &img_frame_41_delay_0_04s,
-                &img_frame_42_delay_0_04s,
-                &img_frame_43_delay_0_04s,
-                &img_frame_44_delay_0_04s,
-                &img_frame_45_delay_0_04s,
-                &img_frame_46_delay_0_04s,
-                &img_frame_47_delay_0_04s,
-                &img_frame_48_delay_0_04s,
-                &img_frame_49_delay_0_04s,
-                &img_frame_50_delay_0_04s,
-                &img_frame_51_delay_0_04s,
-                &img_frame_52_delay_0_04s,
-                &img_frame_53_delay_0_04s,
-                &img_frame_54_delay_0_04s,
-                &img_frame_55_delay_0_04s,
-                &img_frame_56_delay_0_04s,
-                &img_frame_57_delay_0_04s,
-                &img_frame_58_delay_0_04s,
-                &img_frame_59_delay_0_08s,
-                &img_frame_60_delay_0_12s,
-            };
-            lv_animimg_set_src(obj, (const void **)images, 61);
-            lv_animimg_set_duration(obj, 3000);
-            lv_animimg_set_repeat_count(obj, LV_ANIM_REPEAT_INFINITE);
-            lv_animimg_start(obj);
-        }
-        {
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.obj0 = obj;
-            lv_obj_set_pos(obj, 175, 239);
+            lv_obj_set_pos(obj, 174, 233);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -221,7 +149,7 @@ void create_screen_main() {
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.obj1 = obj;
-            lv_obj_set_pos(obj, 13, 237);
+            lv_obj_set_pos(obj, 10, 233);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -231,10 +159,12 @@ void create_screen_main() {
             // main_name_lable
             lv_obj_t *obj = lv_label_create(parent_obj);
             objects.main_name_lable = obj;
-            lv_obj_set_pos(obj, 120, 14);
+            lv_obj_set_pos(obj, 45, 15);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_min_width(obj, 150, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_max_width(obj, 150, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_label_set_text(obj, "");
         }
     }
